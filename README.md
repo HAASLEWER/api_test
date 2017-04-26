@@ -1,7 +1,7 @@
 # api_test
 
 # Requirements
-Git</br />
+Git<br />
 MySQL ~5.7<br />
 Node.JS 7.7.1 // Bcrypt can be finicky about the version so best to use this version of node, use nvm it will change your life ;)<br />
 	- NPM ~4.1.2<br />
