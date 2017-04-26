@@ -9,7 +9,7 @@ var app = require('../index.js');
 describe('Auth', function() {
 
 	describe('Check if server is running', function() {
-		var url = "http://localhost:8080/";
+		var url = "http://localhost:8080/status";
 		it("returns status 200", function(done) {
 			request(url, function(error, response, body) {				
 				expect(response.statusCode).to.equal(200);

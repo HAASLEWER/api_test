@@ -16,6 +16,9 @@ app.use(bodyParser.json());
 // Enable cross origin resource sharing, to avoid those nasty browser errors
 app.use(cors());
 
+// Set our public (web app folder) as static
+app.use(express.static(__dirname + '/public'));
+
 // Disable loggin while running unit tests
 if (process.env.NODE_ENV !== 'test') {
 	app.use(morgan('combined'));
@@ -25,9 +28,14 @@ var apiRoutes = express.Router();
 
 // Unauthenticated routes
 
-app.get('/',function(req, res) {
+app.get('/status',function(req, res) {
 	res.send('server running...');
 });	
+
+// Login page
+app.get('/', function(req, res) {
+    res.sendfile('./public/login.html'); 
+}); 
 
 require('./lib/routes/auth')(app);
 
@@ -41,18 +49,16 @@ var routePath = "./lib/routes/";
 fs.readdirSync(routePath).forEach(function(file) {
 	if (file == 'auth.js') { return; } // Skip auth as it should be an unauthenticated route, we require it specifically above
 
-    // Include routes in sub directories
-	if (fs.lstatSync(routePath + file).isDirectory()) {
-		fs.readdirSync(routePath + file).forEach(function(dir_file) {
-		    var route = routePath + file + "/" + dir_file;
-		    require(route)(app);
-		});
-	} else {
-	    var route = routePath + file;
-	    require(route)(app);
-	}
-});   
+    var route = routePath + file;
+    require(route)(app);
+}); 
+
+// Index page
+app.get('/home', function(req, res) {
+    res.sendfile('./public/home.html'); 
+});  
 
 // go go go!
 app.listen(port);
 console.log('Listening on http://localhost:' + port);
+console.log('Access Web App on http://localhost:' + port);
