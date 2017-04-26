@@ -21,3 +21,17 @@ npm test<br />
 npm start<br />
 7. Go to [server_ip]:8080 in your browser to login eg. localhost:8080<br />
 8. Email: test@api.com, Password: $*r3*tMFz:!z7eZX <br />
+
+# Project Description
+A basic system that demonstrates a Node.js API and Angular Material as a front-end.  The application has a hierarchy in the left side bar that contains Product Categories > Product Types.  After opening a Product Category and clicking on a Product Type, the Products that are assigned to the category and type are displayed in the lower portion of the sidebar.  Clicking on a Product opens a sales graph on the right in the main content area.
+
+The API consists of four models namely:
+Auth: The authentication, model, routes and middleware allowing users to register, login and maintain session information through the authentication middleware.
+Users: Includes the user models and routes allowing a client to creat, update, view and delete users.
+Product Categories: The top layer of Product i.e Computing.
+Product Types: The link between the Product Category and Product i.e Monitors.
+Products: The actual Products that are part of a type and category i.e Samsung Monitor.
+
+The API uses JSON Web Tokens(JWT) to issue authentication tokens.  JWT was chosen because it provides a secure and simple way to encode and decode tokens whilst keeping the state information encrypted inside the token allowing you to create stateless applications easily.
+
+Unit Tests are also included for all models to ensure everything is functional before starting the application and makes it easy to scale to continuous integration/deployment environments.
