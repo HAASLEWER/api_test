@@ -1,0 +1,780 @@
+[
+  {
+    "type": "post",
+    "url": "/auth/",
+    "title": "Authenticate a user",
+    "name": "Authenticate",
+    "group": "Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>User email address.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>User password.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The authenticated token that must accompany every request.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n    {\n\t\t  result: {\n\t\t \t\"token\": \"eyJpc3MiOiJzY290Y2guaW8iLCJleHAiOjEzMDA4MTkzODAsIm5hbWUiOiJDaHJpcyBTZXZpbGxlamEiLCJhZG1pbiI6dHJ1ZX0\"\t\n\t\t  }\n    }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "AuthFailed",
+            "description": "<p>The user could not be authenticated.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "    HTTP/1.1 403 Forbidden\n    {\n      \"err\": {\n\t\t \t\"message\": \"User could not be authenticated\"\n\t\t }\n    }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/auth.js",
+    "groupTitle": "Auth"
+  },
+  {
+    "type": "get",
+    "url": "/product_categories/",
+    "title": "Get all product categories",
+    "name": "GetProductCategories",
+    "group": "ProductCategories",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of product categories.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"name\":\"Computing\",\n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/product_categories.js",
+    "groupTitle": "ProductCategories"
+  },
+  {
+    "type": "get",
+    "url": "/product_categories/:id",
+    "title": "Get product category by id",
+    "name": "GetProductCategoriesByID",
+    "group": "ProductCategories",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of product categories.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"name\":\"Computing\",\n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/product_categories.js",
+    "groupTitle": "ProductCategories"
+  },
+  {
+    "type": "get",
+    "url": "/product_categories/:id/product_types",
+    "title": "Get all product types for the category",
+    "name": "GetProductTypesByCategoryID",
+    "group": "ProductCategories",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of product types.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"name\":\"Computing\",\n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/product_categories.js",
+    "groupTitle": "ProductCategories"
+  },
+  {
+    "type": "get",
+    "url": "/product_types/",
+    "title": "Get all product types",
+    "name": "GetProductTypes",
+    "group": "ProductTypes",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of product types.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"name\":\"Computing\",\n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/product_types.js",
+    "groupTitle": "ProductTypes"
+  },
+  {
+    "type": "get",
+    "url": "/product_types/:id",
+    "title": "Get product type by id",
+    "name": "GetProductTypesByID",
+    "group": "ProductTypes",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of product types.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"name\":\"Computing\",\n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/product_types.js",
+    "groupTitle": "ProductTypes"
+  },
+  {
+    "type": "get",
+    "url": "/product_types/:id/products",
+    "title": "Get all products for product type by id",
+    "name": "GetProductsByTypeID",
+    "group": "ProductTypes",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of products.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"name\":\"Computing\",\n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/product_types.js",
+    "groupTitle": "ProductTypes"
+  },
+  {
+    "type": "get",
+    "url": "/products/",
+    "title": "Get all product types",
+    "name": "GetProducts",
+    "group": "Products",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of product types.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"name\":\"Monitor\",\n\t\t         \"product_type\":\"Computing\", \n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/products.js",
+    "groupTitle": "Products"
+  },
+  {
+    "type": "get",
+    "url": "/products/:id",
+    "title": "Get product type by id",
+    "name": "GetProductsByID",
+    "group": "Products",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of product types.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"name\":\"Monitor\",\n\t\t         \"product_type\":\"Computing\", \n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/products.js",
+    "groupTitle": "Products"
+  },
+  {
+    "type": "post",
+    "url": "/user",
+    "title": "Add a new user",
+    "name": "CreateUser",
+    "group": "Users",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "\n    body:\n    {\n\t\t\t\"password\": \"1234\",\n\t\t\t\"firstname\": \"Jannie\",\n\t\t\t\"lastname\": \"Moolman\",\n\t\t\t\"email\": \"jannie@moolman.co.za\",\n    }",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>The user's password.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>The user's firstname.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>The user's lastname.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>The user's email address.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "result",
+            "description": "<p>The data saved to the database.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{\n\t\t\t\"result\": {\n\t\t\t\t\"firstname\": \"Jannie\",\n\t\t\t\t\"lastname\": \"Moolman\",\n\t\t\t\t\"email\": \"jannie@moolman.co.za\",\n\t\t\t}\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InvalidPayload",
+            "description": "<p>The specified payload is incorrect.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "    HTTP/1.1 400 \n\t\t{  \n\t\t   \"err\":{  \n\t\t      \"message\":[  \n\t\t         {  \n\t\t            \"property\":\"instance\",\n\t\t            \"message\":\"requires property \\\"first_name\\\"\",\n\t\t            \"schema\":\"user_schema\",\n\t\t            \"instance\":{  \n\t\t               \"password\":\"1234\",\n\t\t               \"lastname\":\"Moolman\",\n\t\t               \"email\":\"jannie@moolman.co.za\",\n\t\t            },\n\t\t            \"name\":\"required\",\n\t\t            \"argument\":\"first_name\",\n\t\t            \"stack\":\"instance requires property \\\"first_name\\\"\"\n\t\t         }\n\t\t      ]\n\t\t   }\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/users.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "delete",
+    "url": "/users/:id",
+    "title": "Delete a user",
+    "name": "DeleteUser",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The user id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>Whether the request was successful.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Database result.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n    {\n      \"result\": \n\t\t\t\t{\n\t\t\t\t\"fieldCount\": 0\n\t\t\t\t\"affectedRows\": 1\n\t\t\t\t\"insertId\": 0\n\t\t\t\t\"serverStatus\": 2\n\t\t\t\t\"warningCount\": 0\n\t\t\t\t\"message\": \"\"\n\t\t\t\t\"protocol41\": true\n\t\t\t\t\"changedRows\": 0\n\t\t\t\t}\n    }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/users.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "get",
+    "url": "/users/:id",
+    "title": "Get user by id",
+    "name": "GetUserByID",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of users.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"firstname\":\"Lehan\",\n\t\t         \"lastname\":\"Coetzee\",\n\t\t         \"email\":\"coetzeel@live.co.za\",\n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/users.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "get",
+    "url": "/users/",
+    "title": "Get all users",
+    "name": "GetUsers",
+    "group": "Users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "result",
+            "description": "<p>Array of users.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{  \n\t\t   \"result\":[  \n\t\t      {  \n\t\t         \"id\":1,\n\t\t         \"firstname\":\"Lehan\",\n\t\t         \"lastname\":\"Coetzee\",\n\t\t         \"email\":\"coetzeel@live.co.za\",\n\t\t      }\n\t\t   ]\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/users.js",
+    "groupTitle": "Users"
+  },
+  {
+    "type": "put",
+    "url": "/user/:id",
+    "title": "Update a user",
+    "name": "UpdateUser",
+    "group": "Users",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "\n    body:\n    {\n\t\t\t\"password\": \"1234\",\n\t\t\t\"firstname\": \"Jannie\",\n\t\t\t\"lastname\": \"Moolman\",\n\t\t\t\"email\": \"jannie@moolman.co.za\",\n    }",
+        "type": "json"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>The valid authentication token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>The user's password.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>The user's firstname.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>The user's lastname.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>The user's email address.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "result",
+            "description": "<p>The data saved to the database.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n\t\t{\n\t\t\t\"result\": {\n\t\t\t\t\"firstname\": \"Jannie\",\n\t\t\t\t\"lastname\": \"Moolman\",\n\t\t\t\t\"email\": \"jannie@moolman.co.za\",\n\t\t\t}\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InvalidPayload",
+            "description": "<p>The specified payload is incorrect.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "    HTTP/1.1 400 \n\t\t{  \n\t\t   \"err\":{  \n\t\t      \"message\":[  \n\t\t         {  \n\t\t            \"property\":\"instance\",\n\t\t            \"message\":\"requires property \\\"firstname\\\"\",\n\t\t            \"schema\":\"user_schema\",\n\t\t            \"instance\":{  \n\t\t               \"password\":\"1234\",\n\t\t               \"firstname\":\"Jannie\",\n\t\t               \"lastname\":\"Moolman\",\n\t\t               \"email\":\"jannie@moolman.co.za\",\n\t\t            },\n\t\t            \"name\":\"required\",\n\t\t            \"argument\":\"firstname\",\n\t\t            \"stack\":\"instance requires property \\\"firstname\\\"\"\n\t\t         }\n\t\t      ]\n\t\t   }\n\t\t}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "api_test/lib/routes/users.js",
+    "groupTitle": "Users"
+  },
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "api_test/docs/main.js",
+    "group": "_home_lehan_Documents_Projects_other_api_test_docs_main_js",
+    "groupTitle": "_home_lehan_Documents_Projects_other_api_test_docs_main_js",
+    "name": ""
+  }
+]
