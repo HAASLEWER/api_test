@@ -22,6 +22,14 @@ npm start<br />
 7. Go to [server_ip]:8080 in your browser to login eg. localhost:8080<br />
 8. Email: test@api.com, Password: $*r3*tMFz:!z7eZX <br />
 
+# API Documentation
+API Documentation can be accessed via GitHub Pages by following this link:
+https://haaslewer.github.io/api_test/
+
+# Demo Site
+The demo site is a preconfigured version of the test.  It was configured exactly as shown above and uses the same code.
+The demo site can be accessed here: http://188.166.169.128:8080
+
 # Project Description
 A basic system that demonstrates a Node.js API and Angular Material as a front-end.  The application has a hierarchy in the left side bar that contains Product Categories > Product Types.  After opening a Product Category and clicking on a Product Type, the Products that are assigned to the category and type are displayed in the lower portion of the sidebar.  Clicking on a Product opens a sales graph on the right in the main content area.
 
