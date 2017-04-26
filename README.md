@@ -35,3 +35,6 @@ Products: The actual Products that are part of a type and category i.e Samsung M
 The API uses JSON Web Tokens(JWT) to issue authentication tokens.  JWT was chosen because it provides a secure and simple way to encode and decode tokens whilst keeping the state information encrypted inside the token allowing you to create stateless applications easily.
 
 Unit Tests are also included for all models to ensure everything is functional before starting the application and makes it easy to scale to continuous integration/deployment environments.
+
+# Data Model
+![alt text](https://raw.githubusercontent.com/HAASLEWER/api_test/master/db/api_data_model.png)
