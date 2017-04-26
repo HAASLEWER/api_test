@@ -55,8 +55,8 @@ INSERT INTO `product_types` (name, product_category_id) VALUES("Speakers", 2);
 INSERT INTO `product_types` (name, product_category_id) VALUES("TVs", 3);
 INSERT INTO `product_types` (name, product_category_id) VALUES("Snacks", 4);
 
-INSERT INTO `products` (name, product_type_id) VALUES("Samsung Monitor", 1);
-INSERT INTO `products` (name, product_type_id) VALUES("Logitech Mouse", 1);
+INSERT INTO `products` (name, product_type_id) VALUES("Samsung 21 inch", 1);
+INSERT INTO `products` (name, product_type_id) VALUES("LG 30 inch", 1);
 INSERT INTO `products` (name, product_type_id) VALUES("LG 5.1 Surround Sound", 2);
 INSERT INTO `products` (name, product_type_id) VALUES("Beats Headphones", 2);
 INSERT INTO `products` (name, product_type_id) VALUES("Sony 50 inch TV", 3);
