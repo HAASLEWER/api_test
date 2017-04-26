@@ -20,7 +20,7 @@ npm test<br />
 6. Run the API and Web App<br />
 npm start<br />
 7. Go to [server_ip]:8080 in your browser to login eg. localhost:8080<br />
-8. Email: test@api.com, Password: $*r3*tMFz:!z7eZX <br />
+8. ```Email: test@api.com, Password: $*r3*tMFz:!z7eZX``` <br />
 
 # API Documentation
 API Documentation can be accessed via GitHub Pages by following this link:
